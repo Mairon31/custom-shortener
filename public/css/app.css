@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.right {
+  float: inline-end;
+}
+
+.form-popup {
+  margin: auto;
+  border: 3px solid #f1f1f1;
+  width: 100%;
+}
+
+.form-container { 
+  max-width: 300px; 
+  padding: 10px;
+} 
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+}
