@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser'
 import ShortenerController from './controllers/shortener/controller'
 
 const app = new App({
-    port: 5000,
+    port: process.env.PORT || 5000,
     controllers: [
         new ShortenerController()
     ],
