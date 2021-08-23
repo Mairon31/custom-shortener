@@ -2,7 +2,8 @@ import * as express from 'express'
 import { Request, Response } from 'express'
 import * as rateLimit from 'express-rate-limit'
 import IControllerBase from 'interfaces/IControllerBase.interface'
-
+import { existsSync, readFileSync, watchFile, writeFileSync } from 'fs'
+import * as path from 'path'
 import shortenerModel from './model'
 import IShortener from './interface';
 
@@ -17,6 +18,7 @@ class ShortenerController implements IControllerBase {
 
     public initRoutes() {
         this.router.get('/', this.index)
+        this.router.get('/sitemap.txt', this.sitemap)
         this.router.get('/:shortcode', this.get)
         this.router.post('/create', this.ratelimit, this.create)
         this.router.post('/edit', this.ratelimit, this.edit)
@@ -24,15 +26,11 @@ class ShortenerController implements IControllerBase {
     }
 
     private generateRandomUrl(length: Number) {
-
         const possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
         let urlChars = "";
-
         for (var i = 0; i < length; i++) {
             urlChars += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
-        }
-            
+        }     
         return urlChars;
     }
 
@@ -116,7 +114,7 @@ class ShortenerController implements IControllerBase {
             const shortenerData = new shortenerModel(shortData)
     
             urlInfo = await shortenerData.save()
-
+       
         res.json({
             success: true,
             message: 'URL Shortened',
@@ -137,6 +135,15 @@ class ShortenerController implements IControllerBase {
         url: null,
         id: null
       })
+    }
+    
+    sitemap = async(req: express.Request, res: express.Response) => {
+       let urlist = 'https://clot.me\n'
+       let shortener = await shortenerModel.find().exec()
+       let smp = shortener.forEach(e => { 
+         urlist += `https://clot.me/${e.shortUrl}\n`})
+       writeFileSync(path.join('./public/assets/sitemap.txt'), urlist) 
+       res.sendFile(path.resolve('./public/assets/sitemap.txt'))
     }
     
     edit = async(req: express.Request, res: express.Response) => {

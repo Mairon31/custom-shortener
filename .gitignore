@@ -1,4 +1,7 @@
 node_modules
+.glitch-assets
+shrinkwrap.yaml
+package-lock.json
 dist
 .env
 .vscode
