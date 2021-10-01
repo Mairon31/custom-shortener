@@ -19,10 +19,11 @@ class ShortenerController implements IControllerBase {
     public initRoutes() {
         this.router.get('/', this.index)
         this.router.get('/sitemap.txt', this.sitemap)
-        this.router.get('/:shortcode', this.get)
+       // this.router.get('/:shortcode', this.get)
         this.router.post('/create', this.ratelimit, this.create)
         this.router.post('/edit', this.ratelimit, this.edit)
         this.router.post('/delete', this.ratelimit, this.remove)
+        this.router.get('/login', this.login)
     }
 
     private generateRandomUrl(length: Number) {
@@ -49,7 +50,11 @@ class ShortenerController implements IControllerBase {
     index = async(req: Request, res: Response) => {
 
         res.render('home/index')
-    } 
+    }
+
+    login = async(req: Request, res: Response) => {
+      res.render('home/login')
+    }
     
 
     get = async(req: Request, res: Response) => {
