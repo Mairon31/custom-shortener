@@ -20,6 +20,7 @@ class ShortenerController implements IControllerBase {
         this.router.get('/', this.index)
         this.router.get('/sitemap.txt', this.sitemap)
        // this.router.get('/:shortcode', this.get)
+        this.router.get('/register', this.register)
         this.router.post('/create', this.ratelimit, this.create)
         this.router.post('/edit', this.ratelimit, this.edit)
         this.router.post('/delete', this.ratelimit, this.remove)
@@ -55,7 +56,10 @@ class ShortenerController implements IControllerBase {
     login = async(req: Request, res: Response) => {
       res.render('home/login')
     }
-    
+
+  register = async(req: Request, res: Response) => {
+      res.render('home/register')
+    }
 
     get = async(req: Request, res: Response) => {
         
