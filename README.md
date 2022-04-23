@@ -17,6 +17,9 @@ A custom and fast URL shortener.
 * Malicious URL report.
 * URLs blacklist.
 
+## Demo
+You can view a live demo thanks to **Glitch** by entering this **[link](https://clotproject.glitch.me)**.
+
 ## Screenshots
 
 #### Desktop
