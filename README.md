@@ -1,7 +1,7 @@
-# Clot Shortener
+# Custom Shortener “Clot”
 A custom and fast URL shortener.
 
-### Data
+### Project Features 
 * Fast shortener.
 * Accessible database (MongoDB).
 * Responsive for Mobile and Desktop.
@@ -10,7 +10,7 @@ A custom and fast URL shortener.
 * Frontend made with TailWindCSS.
 * One click, copy or delete.
 
-### To do
+### To do...
 * URL statistics (Clicks, Ubication Country, Refs).
 * User registration and login.
 * Administration panel.
@@ -22,9 +22,9 @@ You can view a live demo thanks to **Glitch** by entering this **[link](https://
 
 ## Screenshots
 
-#### Desktop
+#### On Desktop
 ![Desktop Screenshot](https://i.imgur.com/VFtyVia_d.webp?maxwidth=640&shape=thumb&fidelity=medium)
-#### Mobile
+#### On Mobile
 ![Mobile Screenshot](https://i.imgur.com/tm9FXXs_d.webp?maxwidth=640&shape=thumb&fidelity=medium)
 
 ## Testing locally
